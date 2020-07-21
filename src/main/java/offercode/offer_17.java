@@ -1,7 +1,5 @@
 package offercode;
 
-import com.sun.scenario.effect.Merge;
-
 public class offer_17 {
 
     /**
