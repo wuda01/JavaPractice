@@ -1,7 +1,5 @@
 package offercode.BinaryTrees;
 
-import offercode.BinaryTrees.TreeNode;
-
 import java.util.Arrays;
 
 public class offer_06 {

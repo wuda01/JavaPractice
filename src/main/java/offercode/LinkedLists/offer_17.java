@@ -10,13 +10,13 @@ public class offer_17 {
      */
 
     public static void main(String[] args) {
-        offer_05.ListNode n1 = new offer_05.ListNode(1);
-        offer_05.ListNode l1= new offer_05.ListNode(3);
-        offer_05.ListNode l2 = new offer_05.ListNode(5);
+        ListNode n1 = new ListNode(1);
+        ListNode l1= new ListNode(3);
+        ListNode l2 = new ListNode(5);
 
-        offer_05.ListNode n2 = new offer_05.ListNode(2);
-        offer_05.ListNode l3 = new offer_05.ListNode(4);
-        offer_05.ListNode l4 = new offer_05.ListNode(6);
+        ListNode n2 = new ListNode(2);
+        ListNode l3 = new ListNode(4);
+        ListNode l4 = new ListNode(6);
         n1.next = l1;
         //n1.next.next = l2;
         n2.next = l3;
@@ -26,9 +26,9 @@ public class offer_17 {
 
     }
 
-    public static offer_05.ListNode Merge(offer_05.ListNode list1, offer_05.ListNode list2) {
-        offer_05.ListNode head = new offer_05.ListNode(0);
-        offer_05.ListNode merge = head;
+    public static ListNode Merge(ListNode list1, ListNode list2) {
+        ListNode head = new ListNode(0);
+        ListNode merge = head;
 
         while(list1!=null && list2!=null){
             if(list1.val>list2.val){

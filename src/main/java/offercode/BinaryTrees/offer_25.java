@@ -1,7 +1,5 @@
 package offercode.BinaryTrees;
 
-import offercode.BinaryTrees.TreeNode;
-
 import java.util.ArrayList;
 
 public class offer_25 {
@@ -63,4 +61,5 @@ public class offer_25 {
         this.find(root.right, target, results, new ArrayList<Integer>(path));
 
     }
+
 }

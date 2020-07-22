@@ -1,7 +1,5 @@
 package offercode.BinaryTrees;
 
-import offercode.BinaryTrees.TreeNode;
-
 public class offer_18 {
 
     /**
@@ -31,4 +29,5 @@ public class offer_18 {
         }
         return false;
     }
+
 }
