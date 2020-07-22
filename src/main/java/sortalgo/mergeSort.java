@@ -38,17 +38,17 @@ public class mergeSort {
     public static int[] mergesort(int[] left,int[] right){
         int[] ans = new int[left.length+right.length];
 
-        for(int index=0,i=0,j=0; index<ans.length; index++){
-            if(i>=left.length){
+        for (int index=0,i=0,j=0; index<ans.length; index++) {
+            if (i>=left.length) {
                 ans[index] = right[j++];
                 //j++;
-            }else if(j>=right.length){
+            } else if (j>=right.length) {
                 ans[index] = left[i++];
                 //i++;
-            }else if(left[i]>right[j]){
+            } else if (left[i]>right[j]) {
                 ans[index] = right[j++];
                 //j++;
-            }else {
+            } else {
                 ans[index] = left[i++];
                 //i++;
             }
