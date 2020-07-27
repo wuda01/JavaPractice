@@ -1,6 +1,8 @@
 package offercode.Strings;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class offer_55 {
 
@@ -12,14 +14,38 @@ public class offer_55 {
      * 输出描述:如果当前字符流没有存在出现一次的字符，返回#字符。
      */
 
-    private static ArrayList<Double> list = new ArrayList<Double>();
+    private static Map<Character, Integer> map = new HashMap<Character, Integer>();
+    private static String input = "";
+
+    public static void main(String[] args) {
+
+        Insert('g');
+        Insert('o');
+        Insert('o');
+        Insert('g');
+        Insert('l');
+        Insert('e');
+
+        System.out.println(FirstAppearingOnce());
+    }
 
     public static void Insert(char ch) {
-
+        if (!map.keySet().contains(ch)) map.put(ch, 1);
+        else map.put(ch, map.get(ch)+1);
+        input+=ch;
     }
     //return the first appearence once char in current stringstream
-    public char FirstAppearingOnce() {
-
-        return 'a';
+    public static char FirstAppearingOnce() {
+        int value = Integer.MAX_VALUE;
+        char result = '#';
+        for (Character c: map.keySet()) {
+            if (map.get(c) == 1) {
+                if (input.indexOf(c) < value) {
+                    value = input.indexOf(c);
+                    result = input.charAt(value);
+                }
+            }
+        }
+        return result;
     }
 }
