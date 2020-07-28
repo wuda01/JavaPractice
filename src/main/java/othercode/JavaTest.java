@@ -2,7 +2,7 @@ package othercode;
 
 import org.junit.jupiter.api.Test;
 
-public class javaTest {
+public class JavaTest {
 
     /*public static void main(String[] args) {
 
@@ -17,7 +17,7 @@ public class javaTest {
     }*/
 
     @Test
-    public static void JavaTest() {
+    public static void Test() {
         System.out.println("Java testing");
     }
 }
