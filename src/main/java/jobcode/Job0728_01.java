@@ -3,7 +3,7 @@ package jobcode;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Job072801 {
+public class Job0728_01 {
 
     /**
      * 印度的阿三家里遭遇了一横祸，家人们不幸去世。阿三继承了家人的遗产，一共是x元钱。

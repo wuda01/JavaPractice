@@ -2,7 +2,7 @@ package jobcode;
 
 import java.util.Scanner;
 
-public class Job073101 {
+public class Job0731_01 {
 
     public static int[] C = new int[5];
     public static int[] V = new int[]{1,5,10,50,100};

@@ -1,6 +1,6 @@
 package jobcode;
 
-public class Job072903 {
+public class Job0729_03 {
 
     /**
      * 在一个2D横板游戏中，所有的怪物都是在X轴上的，每个怪物有两个属性X和HP，

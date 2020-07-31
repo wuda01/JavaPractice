@@ -2,7 +2,7 @@ package jobcode;
 
 import java.util.*;
 
-public class Job072902 {
+public class Job0729_02 {
 
     /**
      * 2. 平行四边形构造

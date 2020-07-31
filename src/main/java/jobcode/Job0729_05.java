@@ -2,7 +2,7 @@ package jobcode;
 
 import java.util.*;
 
-public class Job072905 {
+public class Job0729_05 {
 
     /**
      * 各不相同

@@ -3,7 +3,7 @@ package jobcode;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Job073102 {
+public class Job0731_02 {
 
 
     public static void main(String[] args) {
