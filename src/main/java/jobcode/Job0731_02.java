@@ -1,6 +1,5 @@
 package jobcode;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Job0731_02 {
@@ -24,7 +23,6 @@ public class Job0731_02 {
                 strb.append(c);
             }
         }
-
         System.out.println(strb);
     }
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Job0731_03 {
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         int x01 = sc.nextInt();
         int y01 = sc.nextInt();
