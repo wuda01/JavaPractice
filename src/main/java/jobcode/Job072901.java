@@ -2,7 +2,7 @@ package jobcode;
 
 import java.util.Scanner;
 
-public class JobOne0729 {
+public class Job072901 {
     /**
      * 1. 排序算法
      * 题目描述

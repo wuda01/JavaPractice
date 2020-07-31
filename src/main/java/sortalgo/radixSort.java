@@ -20,7 +20,8 @@ public class radixSort {
      */
 
     public static void main(String[] args) {
-        int[] arr = {3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
+        //int[] arr = {3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
+        int[] arr = {25, 84,21,47,15,27,68,35,20};
         System.out.println(Arrays.toString(radix(arr)));
 
     }
@@ -54,8 +55,11 @@ public class radixSort {
                 }
                 buckArr.get(m).clear();
             }
+            /*for(int j = 0; j < arr.length; j++){
+                System.out.print(arr[j]+" ");
+            }
+            System.out.println("");*/
         }
-
         return arr;
     }
 }

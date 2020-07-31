@@ -2,7 +2,7 @@ package jobcode;
 
 import java.util.Scanner;
 
-public class JobTwo0728 {
+public class Job072802 {
 
     /**
      * 小王和小刚在一家化工厂上班，厂里有一个巨大的水罐（保证足够大）。这个水罐有一个进水口和一个出水口。小

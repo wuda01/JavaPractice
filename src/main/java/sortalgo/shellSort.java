@@ -27,8 +27,9 @@ public class shellSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {5,2,4,5,8,1,2,3};
-        System.out.println(Arrays.toString(shell(arr)));
+        int[] arr = {25, 84,21,47,15,27,68,35,20};
+        shell(arr);
+        // System.out.println(Arrays.toString(shell(arr)));
 
     }
 
@@ -49,6 +50,10 @@ public class shellSort {
                 arr[index+gap] = current;
             }
             gap /= 2;
+            /*for(int i = 0; i < arr.length; i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println("");*/
         }
         return arr;
     }

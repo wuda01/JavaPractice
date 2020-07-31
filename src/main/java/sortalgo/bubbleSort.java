@@ -19,7 +19,8 @@ public class bubbleSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {5,2,4,5,8,1,2,3};
+        //int[] arr = {5,2,4,5,8,1,2,3};
+        int[] arr = {25, 84,21,47,15,27,68,35,20};
         System.out.println(Arrays.toString(bubble(arr)));
 
     }
@@ -39,6 +40,10 @@ public class bubbleSort {
                     swap = true;
                 }
             }
+            /*for(int j = 0; j < arr.length; j++){
+                System.out.print(arr[j]+" ");
+            }
+            System.out.println("");*/
             if(swap==false) break;
         }
         return arr;
