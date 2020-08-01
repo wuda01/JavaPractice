@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Job0731_02 {
 
+    /**
+     *编程实现一个从字符串输入提取整数的程序，要求尽可能多的考虑异常输入的情况
+     */
 
     public static void main(String[] args) {
 

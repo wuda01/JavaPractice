@@ -40,7 +40,6 @@ public class quickSort {
         return arr;
     }
 
-
     private static int partition(int[] arr, int low, int high){
         int pivot = arr[low];
         while(low < high){

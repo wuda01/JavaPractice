@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Job0731_03 {
 
+    /**
+     * 矩形面积相交
+     */
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
