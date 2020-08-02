@@ -18,6 +18,19 @@ public class JavaTest03 {
         return ans;
     }
 
+    public static boolean check(int num) {
+        boolean flag = true;
+        while (num > 1) {
+            if (num%2 == 0) {
+                num/=2;
+            } else {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {1,2,3,4,5,6,7,8};
@@ -26,6 +39,8 @@ public class JavaTest03 {
             System.out.println(res);
         }*/
 
-        System.out.println(Arrays.toString(randomSort(arr)));
+        //System.out.println(Arrays.toString(randomSort(arr)));
+
+        System.out.println(check(20));
     }
 }
