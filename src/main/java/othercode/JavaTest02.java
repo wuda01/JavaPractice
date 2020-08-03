@@ -14,7 +14,12 @@ public class JavaTest02 {
         }
 
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(heap.poll());
+            //System.out.println(heap.poll());
+        }
+
+        int[] dp = new int[5];
+        for (int i = 0; i < dp.length; i++) {
+            System.out.print(dp[i]+" ");
         }
     }
 }
