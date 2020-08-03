@@ -9,6 +9,5 @@ public class JobTest02 {
 
         Scanner sc = new Scanner(System.in);
 
-
     }
 }
