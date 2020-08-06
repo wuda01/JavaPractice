@@ -2,7 +2,7 @@ package sortalgo;
 
 import java.util.Arrays;
 
-public class selectionSort {
+public class selectSort {
 
     /**
      * 选择排序

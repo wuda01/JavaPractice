@@ -2,7 +2,7 @@ package sortalgo;
 
 import java.util.Arrays;
 
-public class insertionSort {
+public class insertSort {
 
     /**
      * 插入排序
