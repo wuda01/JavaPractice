@@ -33,7 +33,7 @@ public class quickSort {
     public static int[] qsort(int[] arr, int left, int right) {
         if(left>=right) return arr;
 
-        int pivot = partition(arr,left,right);
+        int pivot = partition(arr, left, right);
         qsort(arr,left,pivot-1);
         qsort(arr,pivot+1,right);
 
@@ -43,8 +43,10 @@ public class quickSort {
     private static int partition(int[] arr, int low, int high){
         int pivot = arr[low];
         while(low < high){
+            //当arr[high]>pivot时跳出循环，arr[high]的值赋给arr[low]
             while(low<high && arr[high]>=pivot) high--;
             arr[low] = arr[high];
+            //当arr[low]<pivot时跳出循环，此时arr[high]的值已经赋给arr[low]
             while (low<high && arr[low]<=pivot) low++;
             arr[high] = arr[low];
         }
