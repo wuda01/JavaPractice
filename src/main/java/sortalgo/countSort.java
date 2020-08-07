@@ -53,12 +53,15 @@ public class countSort {
         }
         int[] count = new int[max-min+1];
         int[] result = new int[arr.length];
+        //数组初始化为0
         for (int i=0; i<count.length; i++) {
             count[i] = 0;
         }
+        //统计数组中每个元素的个数
         for (int i=0; i<arr.length; i++) {
             count[arr[i]-min]++;
         }
+        //对统计完的数组进行排序
         int index = 0;
         for (int i=0; i<count.length; i++) {
             int num = count[i];
