@@ -22,25 +22,52 @@ public class countSort {
     public static void main(String[] args) {
 
         int[] arr = {3,4,1,2,5,9,7,6,8};
-        System.out.println(Arrays.toString(count(arr,1,9)));
+        System.out.println(Arrays.toString(count(arr)));
 
     }
 
-    public static int[] count(int[] arr, int min, int max){
-        if(arr.length<1) return arr;
-
+    public static int[] count(int[] arr){
+        /*if(arr.length<1) return arr;
         int[] coun = new int[max-min+1];
         int[] ans = new int[arr.length];
-
-        for(int i=min; i<=max; i++) coun[i-min] = 0;
-        for(int i=0; i<arr.length; i++) coun[arr[i]-min]++;
-        for(int i=min+1; i<=arr.length; i++) coun[i-min] += coun[i-min-1];
+        for(int i=min; i<=max; i++)
+            coun[i-min] = 0;
+        for(int i=0; i<arr.length; i++)
+            coun[arr[i]-min]++;
+        for(int i=min+1; i<=arr.length; i++)
+            coun[i-min] += coun[i-min-1];
         for(int i=0; i<arr.length; i++){
             int num = arr[i];
             int index = coun[num-min]-1; //元素应该在数组中的存放位置
             ans[index] = num;
             coun[num-min]--;
         }
-        return ans;
+        return ans;*/
+
+        if (arr.length<1) return arr;
+        int min = Integer.MAX_VALUE;
+        int max = 0;
+        for (int i=0; i<arr.length; i++) {
+            if (arr[i]<=min) min = arr[i];
+            if (arr[i]>=max) max = arr[i];
+        }
+        int[] count = new int[max-min+1];
+        int[] result = new int[arr.length];
+        for (int i=0; i<count.length; i++) {
+            count[i] = 0;
+        }
+        for (int i=0; i<arr.length; i++) {
+            count[arr[i]-min]++;
+        }
+        int index = 0;
+        for (int i=0; i<count.length; i++) {
+            int num = count[i];
+            while (num!=0) {
+                result[index] = i+min;
+                num--;
+                index++;
+            }
+        }
+        return result;
     }
 }
