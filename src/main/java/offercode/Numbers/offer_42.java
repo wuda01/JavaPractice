@@ -2,7 +2,7 @@ package offercode.Numbers;
 
 import java.util.ArrayList;
 
-public class offer_41 {
+public class offer_42 {
 
     /**
      * 和为s的两个数字

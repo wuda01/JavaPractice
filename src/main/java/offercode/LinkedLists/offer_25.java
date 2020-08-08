@@ -2,7 +2,7 @@ package offercode.LinkedLists;
 
 import java.util.HashMap;
 
-public class offer_26 {
+public class offer_25 {
 
     /**
      * 复杂链表的复制

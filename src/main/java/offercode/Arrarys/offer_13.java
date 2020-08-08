@@ -2,7 +2,7 @@ package offercode.Arrarys;
 
 import java.util.Arrays;
 
-public class offer_14 {
+public class offer_13 {
 
     /**
      * 调整数组顺序使奇数位于偶数前面

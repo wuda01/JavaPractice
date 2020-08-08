@@ -2,7 +2,7 @@ package offercode.Arrarys;
 
 import java.util.Arrays;
 
-public class offer_36 {
+public class offer_35 {
 
     /**
      * 数组中的逆序对

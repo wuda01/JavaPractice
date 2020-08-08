@@ -1,6 +1,6 @@
 package offercode.Strings;
 
-public class offer_42 {
+public class offer_43 {
 
     /**
      * 左旋转字符串

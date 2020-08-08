@@ -1,43 +1,28 @@
 package offercode.BinaryTrees;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class offer_62 {
 
     /**
-     * 序列化二叉树
-     * 请实现两个函数，分别用来序列化和反序列化二叉树
+     * 二叉搜索树的第k个节点
+     * 给定一棵二叉搜索树，请找出其中的第k小的结点。
+     * 例如，（5，3，7，2，4，6，8）中，按结点数值大小顺序第三小结点的值为4。
      */
 
-    public static String serialize(TreeNode root){
-        if (root==null) return "#,";
-        StringBuffer sb = new StringBuffer(root.val+",");
-        sb.append(serialize(root.left));
-        sb.append(serialize(root.right));
-        return sb.toString();
-    }
+    public static int index = 0;
 
-    public static TreeNode dserialize(String s){
-        String[] arr = s.split(",");
-        Queue<String> queue = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
-            queue.offer(arr[i]);
+    public static TreeNode kthNode(TreeNode root, int k) {
+        if (root!=null) {
+            TreeNode node = kthNode(root.left, k);
+            if (node!=null) return node;
+            index++;
+            if (k==index) return root;
+            node = kthNode(root.right, k);
+            if (node!=null) return node;
         }
-        return pre(queue);
-    }
-
-    public static TreeNode pre(Queue<String> queue) {
-        String s = queue.poll();
-        if (s.equals("#")) return null;
-        TreeNode node = new TreeNode(Integer.parseInt(s));
-        node.left = pre(queue);
-        node.right = pre(queue);
-        return node;
+        return null;
     }
 
     public static void main(String[] args) {
-
         TreeNode node = new TreeNode(0);
         TreeNode l1= new TreeNode(1);
         TreeNode l2 = new TreeNode(2);
@@ -55,10 +40,6 @@ public class offer_62 {
         node.right.left = l5;
         node.right.left.right = l6;
 
-        String tree = serialize(node);
-        System.out.println(tree);
-
-        System.out.println(dserialize(tree));
-
+        System.out.println(kthNode(node, 5).val);
     }
 }

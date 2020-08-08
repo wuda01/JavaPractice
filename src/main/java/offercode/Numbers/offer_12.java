@@ -1,6 +1,6 @@
 package offercode.Numbers;
 
-public class offer_11 {
+public class offer_12 {
 
     /**
      * 数值的整数次方

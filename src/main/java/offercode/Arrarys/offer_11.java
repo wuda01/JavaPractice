@@ -1,6 +1,6 @@
 package offercode.Arrarys;
 
-public class offer_10 {
+public class offer_11 {
 
     /**
      * 二进制中1的个数

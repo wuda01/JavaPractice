@@ -1,6 +1,6 @@
 package offercode.Arrarys;
 
-public class offer_08 {
+public class offer_06 {
 
     /**
      * 旋转数组的最小数字

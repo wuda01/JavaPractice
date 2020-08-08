@@ -1,6 +1,6 @@
 package offercode.Numbers;
 
-public class offer_34 {
+public class offer_33 {
 
     /**
      * 丑数

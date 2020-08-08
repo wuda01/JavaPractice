@@ -1,6 +1,6 @@
 package offercode.Strings;
 
-public class offer_04 {
+public class offer_02 {
 
     /**
      * 替换空格

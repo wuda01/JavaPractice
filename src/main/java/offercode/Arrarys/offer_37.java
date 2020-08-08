@@ -2,7 +2,7 @@ package offercode.Arrarys;
 
 import java.util.Arrays;
 
-public class offer_38 {
+public class offer_37 {
 
     /**
      * 数字在排序数组中出现的次数

@@ -1,6 +1,6 @@
 package offercode.LinkedLists;
 
-public class offer_37 {
+public class offer_36 {
 
     /**
      * 两个链表的第一个公共节点

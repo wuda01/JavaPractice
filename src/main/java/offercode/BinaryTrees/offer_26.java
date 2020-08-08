@@ -1,6 +1,6 @@
 package offercode.BinaryTrees;
 
-public class offer_27 {
+public class offer_26 {
 
     /**
      * 二叉搜索树与双向链表

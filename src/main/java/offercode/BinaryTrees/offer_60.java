@@ -1,18 +1,18 @@
 package offercode.BinaryTrees;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class offer_60 {
 
     /**
-     * 之字形顺序打印二叉树
-     * 请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，
-     * 第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+     * 把二叉树打印成多行
+     * 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
      */
 
-    public static ArrayList<Integer> printTree(TreeNode root) {
-        if (root==null) return null;
+    public static  void printTree(TreeNode root) {
+        if (root==null) System.out.println(-1);;
         ArrayList<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> s1 = new Stack<>();
         Stack<TreeNode> s2 = new Stack<>();
@@ -37,25 +37,25 @@ public class offer_60 {
                 while (!s1.isEmpty()) {
                     TreeNode node = s1.pop();
                     tem.add(node.val);
-                    if (node.right != null) {
-                        s2.push(node.right);
-                    }
                     if (node.left != null) {
                         s2.push(node.left);
+                    }
+                    if (node.right != null) {
+                        s2.push(node.right);
                     }
                 }
             }
             for (int i = 0; i < tem.size(); i++) {
-                res.add(tem.get(i));
+                System.out.print(tem.get(i)+" ");
             }
             tem.clear();
             flag++;
+            System.out.println("");
         }
-        return res;
     }
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         TreeNode node = new TreeNode(0);
         TreeNode l1= new TreeNode(100);
         TreeNode l2 = new TreeNode(200);
@@ -71,6 +71,6 @@ public class offer_60 {
         node.right.left = l5;
         node.right.right = l6;
 
-        System.out.println(printTree(node));
+        printTree(node);
     }
 }

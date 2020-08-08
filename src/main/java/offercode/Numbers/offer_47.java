@@ -3,23 +3,19 @@ package offercode.Numbers;
 public class offer_47 {
 
     /**
-     * 不用加减乘除做加法
-     * 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。
+     * 求1+2+3+...+n
+     * 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字
+     * 及条件判断语句（A?B:C）。
      */
 
     public static void main(String[] args) {
-        System.out.println(Add(45, 22));
+        System.out.println(Sum_Solution(6));
     }
 
-    public static int Add(int num1,int num2) {
-        int result = 0;
-        int carry = 0;
-        do {
-            result = num1 ^ num2;
-            carry = (num1 & num2) << 1;
-            num1 = result;
-            num2 = carry;
-        } while (carry != 0);
-        return result;
+    public static int Sum_Solution(int n) {
+        int sum = n;
+        // 递归累加，直到0为止，可用&&来充当if判断，A&&B A非0，执行B; A为0，结束递归
+        boolean flag = (sum>0) && ((sum+=Sum_Solution(sum-1))>0);
+        return sum;
     }
 }

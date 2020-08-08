@@ -1,71 +1,54 @@
 package offercode.BinaryTrees;
 
+
 public class offer_58 {
 
     /**
-     * 二叉树的下一个节点
-     * 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
-     * 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
-     * 解题思路
-     * 中序遍历：左 -> 根 -> 右
-     * 分三种情况：
-     *   如果当前节点为空，直接返回空；
-     *   如果当前节点有右子树，则返回右子树的最左子树；
-     *   如果当前节点没有右子树，再分两种情况：
-     *     看看当前节点是不是它的父节点的左子树，如果是，则返回它的父节点；
-     *     如果当前节点不是它的父节点的左子树，则把父节点赋给当前节点，
-     *     再判断当前节点是不是它的父节点的左子树，直到当前节点是不是它的父节点
-     *     的左子树，返回它的父节点。
+     * 对称的二叉树
+     * 请实现一个函数，用来判断一颗二叉树是不是对称的。
+     * 注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
      */
 
+    public static boolean isEquals(TreeNode root) {
+        if (root==null) return true;
+        return compareTo(root.left, root.right);
+    }
+
+    public static boolean compareTo(TreeNode left, TreeNode right) {
+        if (left==null && right==null) return true;
+        if (left==null || right==null) return false;
+
+        if (left.val==right.val) {
+            boolean ans = compareTo(left.left, right.right) && compareTo(left.right, right.left);
+            return ans;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
-        TreeLinkNode node = new TreeLinkNode(1);
-        TreeLinkNode t1 = new TreeLinkNode(2);
-        TreeLinkNode t2 = new TreeLinkNode(3);
-        TreeLinkNode t3 = new TreeLinkNode(4);
-        TreeLinkNode t4 = new TreeLinkNode(5);
-        TreeLinkNode t5 = new TreeLinkNode(6);
-        TreeLinkNode t6 = new TreeLinkNode(7);
-        TreeLinkNode t7 = new TreeLinkNode(8);
-        TreeLinkNode t8 = new TreeLinkNode(9);
 
-        node.left = t1;
-        node.left.left = t3;
-        node.left.right = t4;
-        node.left.left.left = t8;
+        TreeNode node = new TreeNode(0);
+        TreeNode l1= new TreeNode(100);
+        TreeNode l2 = new TreeNode(100);
+        TreeNode l3 = new TreeNode(300);
+        TreeNode l4 = new TreeNode(400);
+        TreeNode l5 = new TreeNode(400);
+        TreeNode l6 = new TreeNode(300);
 
-        node.right = t2;
-        node.right.left = t5;
-        node.right.right = t6;
-        node.right.right.left = t7;
+        node.left = l1;
+        node.right = l2;
+        node.left.left = l3;
+        node.left.right = l4;
+        node.right.left = l5;
+        node.right.right = l6;
 
-        node.left.next = node;
-        node.left.left.next = node.left;
-        node.left.right.next = node.left;
-        node.left.left.left.next = node.left.left;
+        /*System.out.println(node.left.left.val);
+        System.out.println(node.left.right.val);
+        System.out.println(node.right.left.val);
+        System.out.println(node.right.right.val);*/
+        System.out.println(isEquals(node));
 
-        node.right.next = node;
-        node.right.left.next = node.right;
-        node.right.right.next = node.right;
-        node.right.right.left.next = node.right.right;
-
-        System.out.println(GetNext(node.left.right).val);
     }
 
-    public static TreeLinkNode GetNext(TreeLinkNode pNode) {
-        if (pNode == null) return null;
-        if (pNode.right != null) {
-            TreeLinkNode node = pNode.right;
-            while (node.left != null) {
-                node = node.left;
-            }
-            return node;
-        }
-        while (pNode.next != null) {
-            TreeLinkNode root = pNode.next;
-            if (root.left == pNode) return root;
-            pNode = root;
-        }
-        return null;
-    }
+
 }

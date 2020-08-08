@@ -2,7 +2,7 @@ package offercode.BinaryTrees;
 
 import java.util.Arrays;
 
-public class offer_06 {
+public class offer_03 {
 
     /**
      * 重建二叉树

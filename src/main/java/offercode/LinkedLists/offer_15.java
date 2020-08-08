@@ -1,14 +1,11 @@
 package offercode.LinkedLists;
 
-import offercode.LinkedLists.offer_05;
-
-import java.util.Stack;
 
 public class offer_15 {
 
     /**
-     * 链表中倒数第k个节点
-     * 输入一个链表，输出该链表中倒数第k个结点。
+     * 反转链表
+     * 输入一个链表，反转链表后，输出新链表的表头。
      */
 
     public static void main(String[] args) {
@@ -22,23 +19,23 @@ public class offer_15 {
         node.next.next = l2;
         node.next.next.next = l3;
         node.next.next.next.next = l4;
-        System.out.println(FindKthToTail(node,2).val);
+        System.out.println(ReverseList(node).val);
+
     }
 
-    public static ListNode FindKthToTail(ListNode head, int k) {
+    public static ListNode ReverseList(ListNode head) {
 
-        if(head==null || k==0) return null;
-        Stack<ListNode> sta = new Stack<ListNode>();
+        if(head==null || head.next==null) return head;
+
+        ListNode pre = null;
+        ListNode nex = null;
+
         while(head!=null){
-            sta.push(head);
-            head=head.next;
+            nex = head.next;
+            head.next = pre;
+            pre = head;
+            head = nex;
         }
-        while(sta.size()<k) return null;
-
-        while(k>1){
-            sta.pop();
-            k--;
-        }
-        return sta.pop();
+        return pre;
     }
 }

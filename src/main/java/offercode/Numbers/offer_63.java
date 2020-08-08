@@ -3,7 +3,7 @@ package offercode.Numbers;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class offer_64 {
+public class offer_63 {
 
     /**
      * 数据流中的中位数

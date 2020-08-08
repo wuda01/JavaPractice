@@ -1,6 +1,6 @@
 package offercode.BinaryTrees;
 
-public class offer_39 {
+public class offer_38 {
 
     /**
      * 二叉树的深度

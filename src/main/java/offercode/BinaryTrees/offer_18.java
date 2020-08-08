@@ -3,32 +3,37 @@ package offercode.BinaryTrees;
 public class offer_18 {
 
     /**
-     * 树的子结构
-     * 输入两棵二叉树A，B，判断B是不是A的子结构。
-     * （ps：我们约定空树不是任意一个树的子结构）
+     * 二叉树的镜像
+     * 操作给定的二叉树，将其变换为源二叉树的镜像。
+     * 输入描述:
+     * 二叉树的镜像定义：源二叉树
+     *     	    8
+     *     	   /  \
+     *     	  6   10
+     *     	 / \  / \
+     *     	5  7 9 11
+     *     	镜像二叉树
+     *     	    8
+     *     	   /  \
+     *     	  10   6
+     *     	 / \  / \
+     *     	11 9 7  5
      */
 
     public static void main(String[] args) {
 
     }
 
-    public static boolean HasSubtree(TreeNode root1, TreeNode root2) {
-        if(root1==null || root2==null) return false;
-        if(root1.val==root2.val){
-            if(judge(root1,root2)) return true;
-        }
-        return HasSubtree(root1.left,root2) || HasSubtree(root1.right,root2);
-    }
+    public TreeNode Mirror(TreeNode root) {
+        if(root==null) return null;
 
-    public static boolean judge(TreeNode root, TreeNode subroot){
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        Mirror(root.left);
+        Mirror(root.right);
 
-        if(subroot==null) return true;
-        if(root==null) return false;
-
-        if(root.val==subroot.val){
-            return judge(root.left,subroot.left) && judge(root.right,subroot.right);
-        }
-        return false;
+        return root;
     }
 
 }

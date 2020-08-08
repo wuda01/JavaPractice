@@ -3,7 +3,7 @@ package offercode.LinkedLists;
 
 import java.util.ArrayList;
 
-public class offer_05 {
+public class offer_03 {
 
     /**
      * 从尾到头打印链表

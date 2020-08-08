@@ -2,7 +2,7 @@ package offercode.Strings;
 
 import java.util.ArrayList;
 
-public class offer_28 {
+public class offer_27 {
 
     /**
      * 字符串的排列

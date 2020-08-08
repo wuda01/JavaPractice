@@ -3,29 +3,29 @@ package offercode.Arrarys;
 public class offer_31 {
 
     /**
-     * 连续子数组的最大和
-     * HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。
-     * 今天测试组开完会后,他又发话了:在古老的一维模式识别中,
-     * 常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。
-     * 但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？
-     * 例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。
-     * 给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)
+     * 整数中1出现的次数
+     * 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？
+     * 为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,
+     * 但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,
+     * 可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。
      */
-
     public static void main(String[] args) {
-        int[] arr = {6,-3,-2,7,-15,1,2,2};
-        System.out.println(FindGreatestSumOfSubArray(arr));
-
+        System.out.println(NumberOf1Between1AndN_Solution(13));
     }
 
-    public static int FindGreatestSumOfSubArray(int[] array) {
-        int max = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (array[i-1] > 0) {
-                array[i] += array[i-1];
+
+    public static int NumberOf1Between1AndN_Solution(int n) {
+
+        int count = 0;
+        while (n>0) {
+            String str = String.valueOf(n);
+            char[] chars = str.toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                if (chars[i] == '1') count++;
             }
-            max = Math.max(max, array[i]);
+            n--;
         }
-        return max;
+
+        return count;
     }
 }

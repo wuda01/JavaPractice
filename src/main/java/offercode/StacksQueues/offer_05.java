@@ -2,7 +2,7 @@ package offercode.StacksQueues;
 
 import java.util.Stack;
 
-public class offer_07 {
+public class offer_05 {
 
     /**
      * 用两个栈实现队列

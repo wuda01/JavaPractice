@@ -3,29 +3,34 @@ package offercode.Arrarys;
 public class offer_32 {
 
     /**
-     * 整数中1出现的次数
-     * 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？
-     * 为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,
-     * 但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,
-     * 可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。
+     * 把数组排成最小的数
+     * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，
+     * 打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，
+     * 则打印出这三个数字能排成的最小数字为321323。
      */
+
     public static void main(String[] args) {
-        System.out.println(NumberOf1Between1AndN_Solution(13));
+        int[] arr = {33, 3, 321};
+        System.out.println(PrintMinNumber(arr));
     }
 
+    public static String PrintMinNumber(int [] numbers) {
 
-    public static int NumberOf1Between1AndN_Solution(int n) {
-
-        int count = 0;
-        while (n>0) {
-            String str = String.valueOf(n);
-            char[] chars = str.toCharArray();
-            for (int i = 0; i < chars.length; i++) {
-                if (chars[i] == '1') count++;
+        if(numbers == null || numbers.length == 0)return "";
+        for(int i=0; i < numbers.length; i++){
+            for(int j = i+1; j < numbers.length; j++){
+                int sum1 = Integer.valueOf(numbers[i]+""+numbers[j]);
+                int sum2 = Integer.valueOf(numbers[j]+""+numbers[i]);
+                if(sum1 > sum2){
+                    int temp = numbers[j];
+                    numbers[j] = numbers[i];
+                    numbers[i] = temp;
+                }
             }
-            n--;
         }
-
-        return count;
+        String str = new String("");
+        for(int i=0; i < numbers.length; i++)
+            str = str + numbers[i];
+        return str;
     }
 }
