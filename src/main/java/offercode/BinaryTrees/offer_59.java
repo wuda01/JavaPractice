@@ -56,7 +56,7 @@ public class offer_59 {
 
     public static void main(String[] args) {
 
-        TreeNode node = new TreeNode(0);
+        /*TreeNode node = new TreeNode(0);
         TreeNode l1= new TreeNode(100);
         TreeNode l2 = new TreeNode(200);
         TreeNode l3 = new TreeNode(300);
@@ -69,8 +69,8 @@ public class offer_59 {
         node.left.left = l3;
         node.left.right = l4;
         node.right.left = l5;
-        node.right.right = l6;
+        node.right.right = l6;*/
 
-        System.out.println(printTree(node));
+
     }
 }
