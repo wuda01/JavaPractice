@@ -1,6 +1,8 @@
 package othercode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class JavaTest01 {
 
@@ -41,6 +43,15 @@ public class JavaTest01 {
 
         //System.out.println(Arrays.toString(randomSort(arr)));
 
-        System.out.println(check(20));
+        System.out.println(Integer.MAX_VALUE);
+        //System.out.println(check(20));
+
+        List<Integer> list = new ArrayList<>();
+        for (int i=0; i<5; i++) {
+            list.add(i);
+        }
+        System.out.println(list.get(3));
+        list.remove(3);
+        System.out.println(list.get(2));
     }
 }
