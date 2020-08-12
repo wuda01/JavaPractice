@@ -1,7 +1,5 @@
 package othercode;
 
-import com.google.gson.internal.$Gson$Preconditions;
-
 import java.util.Arrays;
 
 public class allSortAlgo {
@@ -26,7 +24,6 @@ public class allSortAlgo {
     //选择排序
     public static void selectSort(int[] arr) {
         if (arr.length==0) return;
-
         int min;
         int current;
         for (int i=0; i<arr.length; i++) {
@@ -89,12 +86,15 @@ public class allSortAlgo {
     }
 
     //归并排序
-    public static int[] mergeSort(int[] arr) {
+    public static void mergeSort(int[] arr) {
+        System.out.println(Arrays.toString(mergeNewSort(arr)));
+    }
+    public static int[] mergeNewSort(int[] arr) {
         if (arr.length<2) return arr;
         int mid = arr.length / 2;
         int[] left = Arrays.copyOfRange(arr, 0, mid);
         int[] right = Arrays.copyOfRange(arr, mid, arr.length);
-        return merge(mergeSort(left), mergeSort(right));
+        return merge(mergeNewSort(left), mergeNewSort(right));
     }
     public static int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length+right.length];
@@ -156,8 +156,39 @@ public class allSortAlgo {
     }
 
     //堆排序
+    public static int len;
     public static void heapSort(int[] arr) {
-
+        if (arr.length<1)
+            System.out.println(Arrays.toString(arr)); ;
+        len = arr.length;
+        buildMax(arr);
+        while (len > 0) {
+            swap(arr, 0, len-1);
+            len--;
+            adjustMax(arr,0);
+        }
+        System.out.println(Arrays.toString(arr));;
+    }
+    public static void buildMax(int[] arr) {
+        for (int i=len/2-1; i>=0; i--) {
+            adjustMax(arr, i);
+        }
+    }
+    public static void adjustMax(int[] arr, int i) {
+        int maxIndex = i;
+        if (i*2+1<len && arr[i*2+1]>arr[maxIndex])
+            maxIndex = i*2+1;
+        if (i*2+2<len && arr[i*2+2]>arr[maxIndex])
+            maxIndex = i*2+2;
+        if (maxIndex != i) {
+            swap(arr, maxIndex, i);
+            adjustMax(arr, maxIndex);
+        }
+    }
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     //main
@@ -165,16 +196,15 @@ public class allSortAlgo {
         //int[] arr = {5,2,4,5,8,1,2,3};
         //int[] arr = {25, 84,21,47,15,27,68,35,20};
         int[] arr = {3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
-        insertSort(arr); //插入排序
-        selectSort(arr); //选择排序
-        quickSort(arr);  //快速排序
-        shellSort(arr);  //希尔排序
-        //归并排序
-        System.out.println(Arrays.toString(mergeSort(arr)));
-        //计数排序
-        countSort(arr);
-        //冒泡排序
-        bubbleSort(arr);
+
+        insertSort(arr);  //插入排序
+        selectSort(arr);  //选择排序
+        quickSort(arr);   //快速排序
+        shellSort(arr);   //希尔排序
+        mergeSort(arr);   //归并排序
+        countSort(arr);   //计数排序
+        bubbleSort(arr);  //冒泡排序
+        heapSort(arr);    //堆排序
 
     }
 

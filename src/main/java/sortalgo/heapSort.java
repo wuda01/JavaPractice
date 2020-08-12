@@ -26,12 +26,18 @@ public class heapSort {
 
     }
 
-    static int len;
+    /**
+     * 用到完全二叉树结构
+     * 1.构建最大堆
+     * 2.调整最大堆
+     * 3.排序
+     */
+
+    public static int len;
 
     public static int[] heap(int[] arr){
         len = arr.length;
         if(arr.length<1) return arr;
-
         buildMax(arr);
         while(len>0){
             swap(arr, 0, len-1);
@@ -42,15 +48,17 @@ public class heapSort {
     }
 
     public static void buildMax(int[] arr){
-        for(int i=len/2-1; i>=0; i--) adjustArr(arr, i);
+        for(int i=len/2-1; i>=0; i--) {
+            adjustArr(arr, i);
+        }
     }
 
     public static void adjustArr(int[] arr, int i){
-
         int maxIndex = i;
-        if(i*2+1<len && arr[i*2+1]>arr[maxIndex]) maxIndex = i*2+1;
-        if(i*2+2<len && arr[i*2+2]>arr[maxIndex]) maxIndex = i*2+2;
-
+        if(i*2+1<len && arr[i*2+1]>arr[maxIndex])
+            maxIndex = i*2+1;
+        if(i*2+2<len && arr[i*2+2]>arr[maxIndex])
+            maxIndex = i*2+2;
         if(maxIndex != i){
             swap(arr, maxIndex, i);
             adjustArr(arr, maxIndex);
