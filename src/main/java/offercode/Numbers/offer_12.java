@@ -1,5 +1,7 @@
 package offercode.Numbers;
 
+import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
+
 public class offer_12 {
 
     /**
@@ -9,10 +11,10 @@ public class offer_12 {
      */
 
     public static void main(String[] args) {
-
+        System.out.println(Power(2, 10));
     }
 
-    public double Power(double base, int exponent) {
+    public static double Power(double base, int exponent) {
         if(base==0.0) return 0.0;
         double result = 1.0;
         if(exponent<0){
