@@ -19,15 +19,16 @@ public class offer_06 {
     }
 
     public static  int minNumberInRotateArray(int [] array) {
-        //非递减序列
+/*        //非递减序列
         if(array.length==0) return 0;
         int low = 0;
         int mid = 0;
         int high = array.length-1;
 
         while(low<high){
-            if(array[low]<array[high]) return array[low];
-
+            if(array[low]<array[high]) {
+                return array[low];
+            }
             mid = (low+(high-low))/2;
             if(array[low]<array[mid]){
                 low = mid;
@@ -36,9 +37,16 @@ public class offer_06 {
             }else {
                 low++;
             }
-
         }
+        return array[low];*/
 
-        return array[low];
+        if (array.length==0) return 0;
+        int result = 0;
+        for (int i=0; i<array.length-1; i++) {
+            if (array[i]>array[i+1]) {
+                result = array[i+1];
+            }
+        }
+        return result;
     }
 }

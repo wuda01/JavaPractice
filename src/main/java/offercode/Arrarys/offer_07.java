@@ -9,6 +9,10 @@ public class offer_07 {
      * n<=39
      */
 
+    /**
+     * F[n]=F[n-1]+F[n-2](n>=3,F[1]=1,F[2]=1)
+     */
+
     public static void main(String[] args) {
 
         System.out.println(Fibonacci(3));
@@ -17,15 +21,19 @@ public class offer_07 {
 
     public static int Fibonacci(int n) {
 
-        if(n==0) return 0;
+        /*if(n==0) return 0;
         if(n==1) return 1;
-
         int sum = 1;
         int one = 0;
         for(int i=2; i<=n; i++){
             sum = sum+one;
             one = sum-one;
         }
-        return sum;
+        return sum;*/
+
+        if (n==0 || n==1) return n;
+        return Fibonacci(n-1) + Fibonacci(n-2);
+
     }
+
 }

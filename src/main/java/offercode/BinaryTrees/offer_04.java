@@ -12,6 +12,16 @@ public class offer_04 {
      * 则重建二叉树并返回。
      */
 
+    /**
+     * 前序遍历：根节点->左子树->右子树（根->左->右）
+     * 中序遍历：左子树->根节点->右子树（左->根->右）
+     * 后序遍历：左子树->右子树->根节点（左->右->根）
+     *
+     * 根据前序序列第一个结点确定根结点,根据根结点在中序序列中的位置分割出左右两个子序列
+     * 对左子树和右子树分别递归使用同样的方法继续分解
+     * @param args
+     */
+
     public static void main(String[] args) {
         TreeNode node = new TreeNode(1);
         TreeNode t1 = new TreeNode(2);
@@ -35,11 +45,11 @@ public class offer_04 {
         int[] pre = {1,2,4,7,3,5,6,8};
         int[] in = {4,7,2,1,5,3,8,6};
 
-        System.out.println(reConstructBinaryTree(pre,in).toString());
+        System.out.println(reConstructBinaryTree(pre, in).toString());
 
     }
 
-    public static TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+    public static TreeNode reConstructBinaryTree(int[] pre,int[] in) {
 
         if(pre.length==0 || in.length==0) return null;
 

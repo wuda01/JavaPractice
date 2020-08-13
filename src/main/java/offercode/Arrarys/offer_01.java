@@ -22,22 +22,20 @@ public class offer_01 {
 
     }
 
-    public static boolean Find(int target, int [][] array) {
+    public static boolean Find(int target, int[][] array) {
 
         int rows = array.length;
-        if(rows==0) return false;
-
         int cols = array[0].length;
-        if(cols==0) return false;
+        if(rows==0 || cols==0) return false;
 
-        int row = rows-1;
         int col = 0;
-        while(row>=0 && col<cols){
-            if(target < array[row][col]){
-                row--;
-            }else if(target > array[row][col]){
+        int row = rows-1;
+        while (row>=0 && col<cols) {
+            if (array[row][col]<target) {
                 col++;
-            }else {
+            } else if (array[row][col]>target) {
+                row--;
+            } else {
                 return true;
             }
         }

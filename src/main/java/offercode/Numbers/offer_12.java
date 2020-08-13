@@ -13,7 +13,6 @@ public class offer_12 {
     }
 
     public double Power(double base, int exponent) {
-
         if(base==0.0) return 0.0;
         double result = 1.0;
         if(exponent<0){
