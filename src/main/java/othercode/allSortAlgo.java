@@ -1,13 +1,16 @@
 package othercode;
 
+import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class allSortAlgo {
 
     //插入排序
     public static void insertSort(int[] arr) {
-        if (arr.length==0) return;
-
+        if (arr.length<1) return;
         int current = 0;
         for (int i=1; i<arr.length; i++) {
             int index = i-1;
@@ -18,7 +21,7 @@ public class allSortAlgo {
             }
             arr[index+1] = current;
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr)+"  //插入排序");
     }
 
     //选择排序
@@ -37,14 +40,14 @@ public class allSortAlgo {
                 arr[min] = current;
             }
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr)+"  //选择排序");
     }
 
     //快速排序
     public static void quickSort(int[] arr) {
         if (arr.length==0) return;
         int[] result = qSort(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result)+"  //快速排序");
     }
     public static int[] qSort(int[] arr, int left, int right) {
         if (left>=right) return arr;
@@ -82,19 +85,19 @@ public class allSortAlgo {
             }
             gap/=2;
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr)+"  //希尔排序");
     }
 
     //归并排序
     public static void mergeSort(int[] arr) {
-        System.out.println(Arrays.toString(mergeNewSort(arr)));
+        System.out.println(Arrays.toString(preMerge(arr))+"  //归并排序");
     }
-    public static int[] mergeNewSort(int[] arr) {
+    public static int[] preMerge(int[] arr) {
         if (arr.length<2) return arr;
         int mid = arr.length / 2;
         int[] left = Arrays.copyOfRange(arr, 0, mid);
         int[] right = Arrays.copyOfRange(arr, mid, arr.length);
-        return merge(mergeNewSort(left), mergeNewSort(right));
+        return merge(preMerge(left), preMerge(right));
     }
     public static int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length+right.length];
@@ -109,7 +112,7 @@ public class allSortAlgo {
 
     //计数排序
     public static void countSort(int[] arr) {
-        if (arr.length==0) return;
+        if (arr.length<1) return;
         int min = Integer.MAX_VALUE;
         int max = 0;
         for (int i=0; i<arr.length; i++) {
@@ -133,7 +136,7 @@ public class allSortAlgo {
                 index++;
             }
         }
-        System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result)+"  //计数排序");
     }
 
     //冒泡排序
@@ -152,14 +155,46 @@ public class allSortAlgo {
             }
             if (!flag) break;
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr)+"  //冒泡排序");
+    }
+
+    //基数排序
+    public static void radixSort(int[] arr) {
+        if (arr.length<1) return;
+        int max = Integer.MIN_VALUE;
+        for (int i=0; i<arr.length; i++) {
+            max = Math.min(max, arr[i]);
+        }
+        int maxValue = 0;
+        while (max>0) {
+            max = max / 10;
+            maxValue++;
+        }
+        int mod=10, div=1;
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        for (int i=0; i<10; i++) {
+            list.add(new ArrayList<>());
+        }
+        for (int i=0; i<maxValue; i++, mod*=10, div*=10) {
+            for (int j=0; j<arr.length; j++) {
+                int num = arr[i] % mod / div;
+                list.get(num).add(arr[i]);
+            }
+            int index = 0;
+            for (int m=0; m<list.size(); m++) {
+                for (int n=0; n<list.get(m).size(); n++) {
+                    arr[index] = list.get(m).get(n);
+                }
+                list.get(m).clear();
+            }
+        }
+        System.out.println(Arrays.toString(arr)+"  //基数排序");
     }
 
     //堆排序
     public static int len;
     public static void heapSort(int[] arr) {
-        if (arr.length<1)
-            System.out.println(Arrays.toString(arr)); ;
+        if (arr.length<1) return;
         len = arr.length;
         buildMax(arr);
         while (len > 0) {
@@ -167,7 +202,7 @@ public class allSortAlgo {
             len--;
             adjustMax(arr,0);
         }
-        System.out.println(Arrays.toString(arr));;
+        System.out.println(Arrays.toString(arr)+"  //堆排序");
     }
     public static void buildMax(int[] arr) {
         for (int i=len/2-1; i>=0; i--) {
@@ -191,6 +226,39 @@ public class allSortAlgo {
         arr[j] = temp;
     }
 
+    //桶排序
+    public static void bucketSort(int[] arr) {
+        if (arr.length < 2)
+            System.out.println(arr);;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for (int i=0; i<arr.length; i++) {
+            max = Math.max(max, arr[i]);
+            min = Math.min(min, arr[i]);
+        }
+        int bucketNum = (max-min)/arr.length+1;
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>(bucketNum);
+        for (int i=0; i<bucketNum; i++) {
+            list.add(new ArrayList<>());
+        }
+        for (int i=0; i<arr.length; i++) {
+            int num = (arr[i]-min)/arr.length;
+            list.get(num).add(arr[i]);
+        }
+        for (int i=0; i<bucketNum; i++) {
+            Collections.sort(list.get(i));
+        }
+        int index = 0;
+        for (int i=0; i<list.size(); i++) {
+            for (int j=0; j<list.get(i).size(); j++) {
+                arr[index] = list.get(i).get(j);
+                index++;
+            }
+        }
+        System.out.println(Arrays.toString(arr)+"  //桶排序");
+    }
+
+
     //main
     public static void main(String[] args) {
         //int[] arr = {5,2,4,5,8,1,2,3};
@@ -204,7 +272,10 @@ public class allSortAlgo {
         mergeSort(arr);   //归并排序
         countSort(arr);   //计数排序
         bubbleSort(arr);  //冒泡排序
+        radixSort(arr);   //基数排序
         heapSort(arr);    //堆排序
+        bucketSort(arr);  //桶排序
+
 
     }
 

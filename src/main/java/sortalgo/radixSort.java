@@ -28,37 +28,34 @@ public class radixSort {
 
     public static int[] radix(int[] arr){
         if(arr.length<1) return arr;
-
         int max = arr[0];
-        for(int i=0; i<arr.length; i++) max=Math.max(max,arr[i]);
-
-        int maxSize = 0;
+        for(int i=0; i<arr.length; i++) {
+            max=Math.max(max,arr[i]);
+        }
+        int maxSize = 0; //位数
         while(max != 0){
             max /= 10;
             maxSize++;
         }
-
         int mod=10,div=1;
-        ArrayList<ArrayList<Integer>> buckArr = new ArrayList<ArrayList<Integer>>();
-        for(int i=0; i<10; i++) buckArr.add(new ArrayList<Integer>());
-        for(int i=0; i<maxSize; i++,mod*=10,div*=10){
+        ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+        for(int i=0; i<10; i++) { //0~9
+            list.add(new ArrayList<Integer>());
+        }
+        for(int i=0; i<maxSize; i++, mod*=10, div*=10){
             for(int j=0; j<arr.length; j++){
-                int num = arr[j] % mod / div;
-                buckArr.get(num).add(arr[j]);
+                int num = arr[j] % mod / div; //个位，十位，百位...的数字
+                list.get(num).add(arr[j]);
             }
-
+            //对每一次的数字进行排序
             int index = 0;
-            for(int m=0; m<buckArr.size(); m++){
-                for(int n=0; n<buckArr.get(m).size(); n++){
-                    arr[index] = buckArr.get(m).get(n);
+            for(int m=0; m<list.size(); m++){
+                for(int n=0; n<list.get(m).size(); n++){
+                    arr[index] = list.get(m).get(n);
                     index++;
                 }
-                buckArr.get(m).clear();
+                list.get(m).clear(); //清空下次使用
             }
-            /*for(int j = 0; j < arr.length; j++){
-                System.out.print(arr[j]+" ");
-            }
-            System.out.println("");*/
         }
         return arr;
     }

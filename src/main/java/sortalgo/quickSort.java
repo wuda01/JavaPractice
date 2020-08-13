@@ -26,7 +26,7 @@ public class quickSort {
         System.out.println(Arrays.toString(quick(arr)));
     }
 
-    private static int[] quick(int [] arr){
+    private static int[] quick(int [] arr) {
         return qsort(arr,0,arr.length-1);
     }
 

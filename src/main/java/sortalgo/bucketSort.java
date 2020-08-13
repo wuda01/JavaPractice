@@ -22,7 +22,8 @@ public class bucketSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {3,4,1,2,5,9,7,6,8};
+        //int[] arr = {3,4,1,2,5,9,7,6,8};
+        int[] arr = {3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
         System.out.println(Arrays.toString(bucket(arr)));
     }
 
@@ -33,26 +34,26 @@ public class bucketSort {
             min = Math.min(min,arr[i]);
             max = Math.max(max,arr[i]);
         }
-
-        int buckNum= (max-min)/arr.length+1;
+        int buckNum= (max-min)/arr.length+1; //桶的数量
         ArrayList<ArrayList<Integer>> arrList = new ArrayList<ArrayList<Integer>>(buckNum);
         for(int i=0; i<buckNum; i++){
             arrList.add(new ArrayList<Integer>());
         }
-
         for(int i=0; i<arr.length; i++){
             int num = (arr[i]-min)/arr.length; //根据元素的大小放进桶中
             arrList.get(num).add(arr[i]);
         }
-
-        for(int i=0; i<arrList.size(); i++){
+        //System.out.println(arrList);
+        for(int i=0; i<arrList.size(); i++){  //对桶里边的元素排序
             Collections.sort(arrList.get(i));
         }
-
-
-
-        for(int i=0; i<arr.length; i++){
-            arr[i] = arrList.get(0).get(i);
+        System.out.println(arrList);
+        int index = 0;
+        for(int i=0; i<buckNum; i++){
+            for (int j=0; j<arrList.get(i).size(); j++) {
+                arr[index] = arrList.get(i).get(j);
+                index++;
+            }
         }
         //System.out.println(arrList.get(0));
         return arr;
