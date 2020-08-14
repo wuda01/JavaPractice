@@ -31,30 +31,74 @@ public class offer_19 {
         }
         return result;*/
 
-        if (matrix.length==0) return null;
+        //超时
+        /*if (matrix.length==0) return null;
         ArrayList<Integer> result = new ArrayList<>();
-        int C = matrix[0].length;
-        int R = matrix.length;
-        int col = C; //列数
-        int row = R; //行数
-        //System.out.println(col);
-        //System.out.println(row);
-        while (result.size()<C*R) {
-            for (int i=C-col; i<col; i++) {
-                result.add(matrix[R-row][i]);
+        int cols = matrix[0].length;
+        int rows = matrix.length;
+        int col = cols; //列数
+        int row = rows; //行数
+        //System.out.println(cols*rows);
+        int index = 1;
+        flag :
+        while (true) {
+            for (int i=cols-col; i<col; i++) {
+                if (index>cols*rows) break flag;
+                result.add(matrix[rows-row][i]);
+                index++;
             }
-            for (int j=R-row+1; j<row; j++) {
+            for (int j=rows-row+1; j<row; j++) {
+                if (index>cols*rows) break flag;
                 result.add(matrix[j][col-1]);
+                index++;
             }
-            for (int k=col-2; k>=C-col; k--) {
+            for (int k=col-2; k>=cols-col; k--) {
+                if (index>cols*rows) break flag;
                 result.add(matrix[row-1][k]);
+                index++;
             }
-            for (int m=row-2; m>R-row; m--) {
-                result.add(matrix[m][C-col]);
+            for (int m=row-2; m>rows-row; m--) {
+                if (index>cols*rows) break flag;
+                result.add(matrix[m][cols-col]);
+                index++;
+
             }
             col--;
             row--;
             //System.out.println(result.size());
+        }
+        return result;*/
+
+        if (matrix.length==0) return null;
+        ArrayList<Integer> result = new ArrayList<>();
+        int rows = matrix.length-1;
+        int cols = matrix[0].length-1;
+        int row=0, col=0;
+        while (true) {
+            //向右
+            for (int i=col; i<=cols; i++) {
+                result.add(matrix[row][i]);
+            }
+            row++;
+            if (row>rows) break;
+            //向下
+            for (int i=row; i<=rows; i++) {
+                result.add(matrix[i][cols]);
+            }
+            cols--;
+            if (col>cols) break;
+            //向左
+            for (int i=cols; i>=col; i--) {
+                result.add(matrix[rows][i]);
+            }
+            rows--;
+            if (row>rows) break;
+            //向上
+            for (int i=rows; i>=row; i--) {
+                result.add(matrix[i][col]);
+            }
+            col++;
+            if (col>cols) break;
         }
         return result;
     }
@@ -64,12 +108,13 @@ public class offer_19 {
                      { 5, 6, 7, 8},
                      { 9,10,11,12},
                      {13,14,15,16},
-                     {17,18,19,20},
-                     {21,22,23,34}};
+                     /*{17,18,19,20},
+                     {21,22,23,34}*/};
+        int[][] b = {{1},{2},{3},{4},{5}};
 
         //System.out.println(a.length);
         //System.out.println(a[4][0]);
-        System.out.println(printMatrix(a));
+        System.out.println(printMatrix(b));
     }
 
 

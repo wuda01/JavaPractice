@@ -23,15 +23,15 @@ public class offer_13 {
         if(array.length<=1) return null;
         int i = 0;
         while(i < array.length){
-            if(array[i]%2 != 0){
+            if(array[i]%2 != 0){ //奇数
                 i++;
-            }else{
+            }else{ //偶数
                 int j = i+1;
-                while(array[j]%2 == 0){
+                while(array[j]%2 == 0){ //偶数
                     if(j==array.length-1) return array;
                     j++;
                 }
-                int temp = array[j];
+                int temp = array[j]; //奇数
                 while(j>i){
                     array[j] = array[j-1];
                     j--;
