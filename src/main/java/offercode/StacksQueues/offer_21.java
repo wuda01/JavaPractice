@@ -12,10 +12,20 @@ public class offer_21 {
      * （注意：这两个序列的长度是相等的）
      */
 
+    /**
+     * 入栈1,2,3,4,5
+     * 出栈4,5,3,2,1
+     * 首先1入辅助栈，此时栈顶1≠4，继续入栈2
+     * 此时栈顶2≠4，继续入栈3
+     * 此时栈顶3≠4，继续入栈4
+     * 此时栈顶4＝4，出栈4，弹出序列向后一位，此时为5，,辅助栈里面是1,2,3
+     * 此时栈顶3≠5，继续入栈5
+     */
+
     public static void main(String[] args) {
 
         int[] pushA = {1,2,3,4,5};
-        int[] popA = {4,3,5,1,2};
+        int[] popA = {4,3,5,2,1};
         System.out.println(IsPopOrder(pushA,popA));
 
     }
@@ -33,6 +43,6 @@ public class offer_21 {
                 index++;
             }
         }
-        return aux.empty();
+        return aux.isEmpty();
     }
 }

@@ -32,18 +32,18 @@ public class offer_24 {
 
     }
 
-    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
+    public static ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
         ArrayList<ArrayList<Integer>> results = new ArrayList<ArrayList<Integer>>();
 
         if(root==null) return results;
 
         ArrayList<Integer> path = new ArrayList<Integer>();
-        this.find(root, target, results, path);
+        find(root, target, results, path);
 
         return results;
     }
 
-    private void find(TreeNode root, int target, ArrayList<ArrayList<Integer>> results,
+    private static void find(TreeNode root, int target, ArrayList<ArrayList<Integer>> results,
                       ArrayList<Integer> path){
         if(root==null) return;
 
@@ -57,8 +57,8 @@ public class offer_24 {
             return;
         }
 
-        this.find(root.left, target, results, new ArrayList<Integer>(path));
-        this.find(root.right, target, results, new ArrayList<Integer>(path));
+        find(root.left, target, results, new ArrayList<Integer>(path));
+        find(root.right, target, results, new ArrayList<Integer>(path));
 
     }
 

@@ -24,6 +24,7 @@ public class offer_09 {
     }
 
     public static void main(String[] args) {
-        System.out.println(JumpFloorII(100));
+        System.out.println(JumpFloorII(4)); //2
+        System.out.println(JumpFloorII(3)); //4
     }
 }

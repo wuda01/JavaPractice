@@ -49,7 +49,6 @@ public class offer_22 {
             if(node.left!=null) deque.addLast(node.left);
             if(node.right!=null) deque.addLast(node.right);
         }
-
         return res;
     }
 
