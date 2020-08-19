@@ -1,5 +1,7 @@
 package offercode.BinaryTrees;
 
+import java.util.ArrayList;
+
 public class offer_26 {
 
     /**
@@ -7,8 +9,6 @@ public class offer_26 {
      * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。
      * 要求不能创建任何新的结点，只能调整树中结点指针的指向。
      */
-
-    private static TreeNode pre = null;
 
     public static void main(String[] args) {
 
@@ -34,16 +34,45 @@ public class offer_26 {
 
     }
 
+/*    private static TreeNode pre = null;
     public static TreeNode Convert(TreeNode pRootOfTree) {
         if (pRootOfTree == null) return null;
-        Convert(pRootOfTree.left);
+        Convert(pRootOfTree.left);  //遍历左节点
         if (pre != null) {
-            pRootOfTree.left = pre;
+            pRootOfTree.left = pre; //
             pre.right = pRootOfTree;
         }
-        pre = pRootOfTree;
+        pre = pRootOfTree; //根节点
         Convert(pRootOfTree.right);
         return pre;
+    }*/
+
+    public static TreeNode Convert(TreeNode pRootOfTree) {
+        if (pRootOfTree==null)
+            return null;
+        ArrayList<TreeNode> list=new ArrayList<>();
+        Convert(list,pRootOfTree);
+        return Convert(list);
+    }
+
+    public static void Convert(ArrayList<TreeNode> list,TreeNode root){
+        if (root!=null){
+            Convert(list,root.left);
+            list.add(root);
+            Convert(list,root.right);
+        }
+    }
+
+    public static TreeNode Convert(ArrayList<TreeNode> list){
+        TreeNode head=list.get(0);
+        TreeNode cur=head;
+        for (int i=1;i<list.size();++i){
+            TreeNode node=list.get(i);
+            node.left = cur;
+            cur.right = node;
+            cur = node;
+        }
+        return head;
     }
 
 }

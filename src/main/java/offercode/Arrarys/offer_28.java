@@ -1,5 +1,7 @@
 package offercode.Arrarys;
 
+import java.util.HashMap;
+
 public class offer_28 {
 
     /**
@@ -12,7 +14,24 @@ public class offer_28 {
     public static void main(String[] args) {
 
         int[] arr = {1,2,3,2,2,2,5,4,2};
-        System.out.println(MoreThanHalfNum_Solution(arr));
+        System.out.println(newMoreThanHalfNum_Solution(arr));
+    }
+
+    public static int newMoreThanHalfNum_Solution(int[] array) {
+        if (array.length<1) return 0;
+        int len = array.length / 2;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i=0; i<array.length; i++) {
+            if (map.containsKey(array[i])) {
+                map.put(array[i], map.get(array[i])+1);
+            } else {
+                map.put(array[i], 1);
+            }
+            if (map.get(array[i])>len) {
+                return array[i];
+            }
+        }
+        return 0;
     }
 
     public static int MoreThanHalfNum_Solution(int [] array) {

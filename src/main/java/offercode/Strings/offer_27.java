@@ -13,52 +13,44 @@ public class offer_27 {
      */
 
     public static void main(String[] args) {
-        String str = "abcb";
+        String str = "aa";
         System.out.println(Permutation(str));
-
+        System.out.println(Permutation("bb"));
     }
 
 
-    public static ArrayList<String> list = new ArrayList<String>();
-
+    public static ArrayList<String> result = new ArrayList<String>();
     public static ArrayList<String> Permutation(String str) {
-        if (str==null || str.length()==0) return list;
+        if (str==null || str.length()==0) return result;
         String[] arr = str.split("");
-        ArrayList<String> arrLis = new ArrayList<String>();
-        for (String s : arr) arrLis.add(s);
+        ArrayList<String> list = new ArrayList<String>();
+        for (String s : arr) list.add(s);
         StringBuilder sb = new StringBuilder();
-
-        add(arrLis, sb);
-
-        return list;
+        add(list, sb);
+        return result;
     }
 
     public static void add(ArrayList<String> arr, StringBuilder sb){
-
         // 当等于str大小是1时，说明遍历到最后一个元素，存到list
         if(arr.size() == 1){
             sb.append(arr.get(0));
             // 判断list中是否有重复，去重
-            int i = list.indexOf(sb.toString());
-            if(i == -1){
-                list.add(sb.toString());
-            }
+            int i = result.indexOf(sb.toString());
+            if(i == -1) result.add(sb.toString());
             return;
         }
-
         // 遍历所有可能情况 abc
-        for (int i = 0; i<arr.size(); i++) {
+        for (int i=0; i<arr.size(); i++) {
             StringBuilder newSb = new StringBuilder();
             // 把之前路径存下
             newSb.append(sb.toString());
             // 存当前元素a/b/c
             newSb.append(arr.get(i));
-
             // 确定a/b/c后，删除，下次递归使用剩余元素
             ArrayList<String> temp = new ArrayList(arr);
             temp.remove(i);
             add(temp, newSb);
         }
-
     }
+
 }
