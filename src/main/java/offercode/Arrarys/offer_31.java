@@ -25,7 +25,6 @@ public class offer_31 {
             }
             n--;
         }
-
         return count;
     }
 }

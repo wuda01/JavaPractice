@@ -43,7 +43,6 @@ public class offer_35 {
         if (left >= right){ //只有一个值，不再进行归并
             return;
         }
-
         int mid = (left + right) / 2 ;
         merge(arr, left, mid); // 左归并
         merge(arr,mid+1, right);  // 右归并

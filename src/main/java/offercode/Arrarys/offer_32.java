@@ -16,7 +16,7 @@ public class offer_32 {
 
     public static String PrintMinNumber(int [] numbers) {
 
-        if(numbers == null || numbers.length == 0)return "";
+        if(numbers == null || numbers.length == 0) return "";
         for(int i=0; i < numbers.length; i++){
             for(int j = i+1; j < numbers.length; j++){
                 int sum1 = Integer.valueOf(numbers[i]+""+numbers[j]);
@@ -28,9 +28,9 @@ public class offer_32 {
                 }
             }
         }
-        String str = new String("");
-        for(int i=0; i < numbers.length; i++)
-            str = str + numbers[i];
-        return str;
+        String result = new String("");
+        for(int i=0; i<numbers.length; i++)
+            result = result + numbers[i];
+        return result;
     }
 }
