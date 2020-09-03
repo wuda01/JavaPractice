@@ -77,8 +77,15 @@ public class offerFor {
     }
 
     //offer_35
-    public int InversePairs(int [] array) {
-        return 0;
+    public int InversePairs(int[] array) {
+        if (array.length<2) return 0;
+        int count = 0;
+        for (int i=0; i<array.length-1; i++) {
+            for (int j=i+1; j<array.length; j++) {
+                if (array[i]>array[j]) count++;
+            }
+        }
+        return count;
     }
 
 
