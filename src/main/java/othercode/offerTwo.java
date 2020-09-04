@@ -4,7 +4,7 @@ import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 
 import java.util.*;
 
-public class offerThr {
+public class offerTwo {
 
     //offer_21
     public boolean IsPopOrder(int [] pushA,int [] popA) {

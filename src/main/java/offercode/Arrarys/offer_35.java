@@ -36,7 +36,7 @@ public class offer_35 {
     }
 
     public static void merge(int[] arr, int left, int right) {
-        if (left >= right) return; //只有一个值，不再进行归并
+        if (left >= right) return; // 只有一个值，不再进行归并
         int mid = (left+right) / 2 ;
         merge(arr, left, mid); // 左归并
         merge(arr,mid+1, right);  // 右归并

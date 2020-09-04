@@ -187,11 +187,6 @@ public class offerTen {
         return stackLitte.peek();
     }
 
-    //offer_21
-    public boolean IsPopOrder(int [] pushA,int [] popA) {
-
-        return false;
-    }
 
 
 }
