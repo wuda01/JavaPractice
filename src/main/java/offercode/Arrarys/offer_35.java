@@ -1,7 +1,5 @@
 package offercode.Arrarys;
 
-import java.util.Arrays;
-
 public class offer_35 {
 
     /**
@@ -34,22 +32,18 @@ public class offer_35 {
     public static int InversePairs(int[] arr) {
         if(arr.length<2) return 0;
         merge(arr, 0, arr.length-1);
-
         return count % 1000000007;
     }
 
     public static void merge(int[] arr, int left, int right) {
-
-        if (left >= right){ //只有一个值，不再进行归并
-            return;
-        }
-        int mid = (left + right) / 2 ;
+        if (left >= right) return; // 只有一个值，不再进行归并
+        int mid = (left+right) / 2 ;
         merge(arr, left, mid); // 左归并
         merge(arr,mid+1, right);  // 右归并
-        mergesort(arr, left, right, mid); // 排序统计
+        mergeSort(arr, left, right, mid); // 排序统计
     }
 
-    public static void mergesort(int[] arr, int left, int right, int mid) {
+    public static void mergeSort(int[] arr, int left, int right, int mid) {
         int[] assist = new int[right-left+1];
         int i=0, l1=left, r1=mid+1;
         while (l1<=mid && r1<=right) {
@@ -59,6 +53,7 @@ public class offer_35 {
             } else {
                 assist[i++] = arr[l1++];
             }
+            //System.out.println(i);
         }
         if (l1 > mid) {
             while (r1 <= right) assist[i++] = arr[r1++];

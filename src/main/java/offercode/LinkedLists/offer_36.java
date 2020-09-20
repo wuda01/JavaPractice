@@ -11,42 +11,42 @@ public class offer_36 {
 
     public static void main(String[] args) {
 
-        ListNode node1 = new ListNode(0);
-        ListNode l2= new ListNode(1);
-        ListNode l3 = new ListNode(2);
-        ListNode l4 = new ListNode(3);
-        ListNode l5 = new ListNode(4);
-        ListNode l6 = new ListNode(5);
+        ListNode node1 = new ListNode(1);
+        ListNode l2= new ListNode(2);
+        ListNode l3 = new ListNode(3);
+        ListNode l4 = new ListNode(4);
+        ListNode l5 = new ListNode(5);
+        ListNode l6 = new ListNode(6);
         node1.next = l2;
         node1.next.next = l3;
         node1.next.next.next = l4;
-        node1.next.next.next.next = l5;
-        node1.next.next.next.next.next = l6;
+        //node1.next.next.next.next = l5;
+        //node1.next.next.next.next.next = l6;
 
-        ListNode node2 = new ListNode(7);
-        ListNode l20= new ListNode(8);
-        ListNode l30 = new ListNode(4);
-        ListNode l40 = new ListNode(5);
+        ListNode node2 = new ListNode(5);
+        ListNode l20= new ListNode(6);
+        ListNode l30 = new ListNode(7);
+        ListNode l40 = new ListNode(8);
         node2.next = l20;
         node2.next.next = l30;
-        node2.next.next.next = l40;
+        //node2.next.next.next = l40;
 
         /*ListNode p = node1;
         while (p != null) {
             System.out.println(p.val);
             p = p.next;
         }*/
+        //System.out.println(node1.toString());
+        //System.out.println(node2.toString());
         System.out.println(FindFirstCommonNode(node1, node2).val);
 
     }
 
     public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-
         if (pHead1==null || pHead2==null) return null;
-
         ListNode p1 = pHead1;
         ListNode p2 = pHead2;
-        while (p1.val != p2.val) {
+        while (p1 != p2) {
             p1 = p1.next;
             p2 = p2.next;
             if (p1 != p2) {

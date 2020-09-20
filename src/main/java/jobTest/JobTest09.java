@@ -2,7 +2,7 @@ package jobTest;
 
 import java.util.Scanner;
 
-public class JobTest07 {
+public class JobTest09 {
 
 
     public static void main(String[] args) {
@@ -31,3 +31,4 @@ public class JobTest07 {
     }
 
 }
+

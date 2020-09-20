@@ -1,40 +1,43 @@
 package jobTest;
 
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Set;
 
 public class JobTest05 {
 
-    public static String isPath(String path) {
-        if (path==null) return "False";
-        Set<Integer> vis = new HashSet<>();
-        int x=0, y=0;
-        vis.add(getHash(x, y));
-        int length = path.length();
-        for (int i=0; i<length; i++) {
-            char dir = path.charAt(i);
-            switch (dir) {
-                case 'N': --x; break;
-                case 'S': ++x; break;
-                case 'W': --y; break;
-                case 'E': ++y; break;
-            }
-            int hashValue = getHash(x, y);
-            if (!vis.add(hashValue)) {
-                return "True";
-            }
-        }
-        return "False";
-    }
-
-    public static int getHash(int x, int y) {
-        return x*20001+y;
-    }
-
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        System.out.println(isPath(s));
+        while (sc.hasNextInt()) {
+            int m = sc.nextInt();
+            int[] arr = new int[m+2];
+            for (int i=0; i<m; i++) {
+                arr[i] = sc.nextInt();
+            }
+            arr[m] = 101;
+            arr[m+1] = 102;
+            Arrays.sort(arr);
+            int[] res = new int[2];
+            int preOdd = -1;
+            int preEven = 0;
+            for (int num : arr) {
+                if (num%2 == 1) {
+                    int tmp = (num-preOdd) / 2 - 1;
+                    if (tmp>res[1]) {
+                        res[1] = tmp;
+                        res[0] = preOdd+2;
+                    }
+                    preOdd = num;
+                } else {
+                    int tmp = (num-preEven) / 2 - 1;
+                    if (tmp>res[1]) {
+                        res[1] = tmp;
+                        res[0] = preEven + 2;
+                    }
+                    preEven = num;
+                }
+            }
+            System.out.println(res[0]+" "+res[1]);
+        }
     }
 }
