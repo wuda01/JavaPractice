@@ -13,7 +13,7 @@ public class offer_30 {
      */
 
     public static void main(String[] args) {
-        int[] arr = {6,-3,-2,7,-15,1,2,2};
+        int[] arr = {-3,6,-2,-2,7,-10,2,2,2};
         System.out.println(FindGreatestSumOfSubArray(arr));
 
     }
