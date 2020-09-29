@@ -1,35 +1,46 @@
 package jobTest;
 
+import java.util.Scanner;
+
 public class JobTest17 {
 
-    public static int score;
+    public static int calu(int a, int b, String flag){
+        /*if (flag=="+") {
+            return (a+b)%1000000007;
+        }else if(flag=="-") {
+            return (a-b)%1000000007;
+        }else if(flag=="*") {
+            return (a*b)%1000000007;
+        }else{
+            return ((int)Math.pow(a, b))%1000000007;
+        }*/
 
-    public static void getScore(int[][] gird, char[] arr, int[][] flag) {
-        int rows=6, cols=6;
-        int row, col;
-        for (int i=0; i<rows; i++) {
-            for (int j=0; j<cols; j++) {
-                if (gird[i][j]=='S'){
-                    row = i;
-                    col = j;
-                }
-            }
+        if (flag=="+") {
+            return (a+b)%1000000007;
+        }else if(flag=="-") {
+            return (a-b)%1000000007;
+        }else if(flag=="*") {
+            return Math.floorMod((a*b), 1000000007);
+        }else{
+            return ((int)Math.pow(a, b))%1000000007;
         }
-        
-    }
+}
 
 
     public static void main(String[] args) {
+        /*Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            String s = sc.nextLine();
+            String[] ss = s.split(" ");
+            System.out.println(calu(Integer.parseInt(ss[0]),
+                    Integer.parseInt(ss[1]), ss[2]));
 
-        int[][] gird = {{'S','#','+','+','O','#'},
-                        {'O','X','X','#','X','#'},
-                        {'+','+','+','+','+','+'},
-                        {'#','#','#','X','X','#'},
-                        {'+','+','#','O','#','+'},
-                        {'O','X','O','+','+','X'}};
-        String path = "SSDDDDDAWWSSSAWSSSADDD";
-        int[][] flag = new int[6][6];
-        char[] arr = path.toCharArray();
-        getScore(gird, arr, flag);
+        }*/
+        System.out.println(calu(1, 2, "+"));
+        System.out.println(calu(3, 4, "-"));
+        System.out.println(calu(1000000000, 1000000000, "*"));
+        System.out.println(calu(2, 3, "^"));
+        System.out.println(calu(2, 1000000000, "^"));
     }
 }
