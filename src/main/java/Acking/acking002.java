@@ -57,10 +57,15 @@ public class acking002 {
 
     //main
     public static void main(String[] args) {
-        int[] v = {0,1,2,3,4};
+        /*int[] v = {0,1,2,3,4};
         int[] w = {0,2,4,4,5};
         int N = 4;
-        int V = 5;
+        int V = 5;*/
+
+        int[] v = {0,20,12,11,10,9};
+        int[] w = {0,24,14,12,10,7};
+        int N = 5;
+        int V = 50;
 
         maxValue(v, w, N, V);
         maxNewValue(v, w, N, V);
